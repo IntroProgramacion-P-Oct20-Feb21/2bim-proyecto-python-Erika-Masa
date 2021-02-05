@@ -10,13 +10,13 @@ def crearFacebook():
          explicación de método
      """
     print("Creando cuenta de Facebook")
-    usuario = input("ingrese el nombre del usuario: ")
-    edad = int (input("ingrese su edad:"))
-    ciudad = input("ingrese el nombre de su ciudad: ")
-    pais = input("ingrese el nombre de su pais: ")
-    correo = input("ingrese su correo electronico")
+    usuario = input("ingrese el nombre del usuario:\n ")
+    edad = int (input("ingrese su edad:\n"))
+    ciudad = input("ingrese el nombre de su ciudad: \n")
+    pais = input("ingrese el nombre de su pais:\n ")
+    correo = input("ingrese su correo electronico\n")
     cadena = "facebook \t \n El nombre del usuario es: %s, su edad es:%d," \
-             "habitat en la ciudad de: %s En el pais de : %s, su correo electroni es : %s"
+             "habitat en la ciudad de: \n %s En el pais de : \n %s, su correo electroni es :\n %s"
     (usuario,edad,ciudad,pais,correo)
     return cadena
 
@@ -86,7 +86,7 @@ def obtenerMensaje(contador):
     "Campaña moderada siga adelante", "Excelente campaña"]
     if ((contador >= 1) and (contador <=5)):
         cadenaFinal = mensajeFinal[0]
-    elif ((contador >= 6) and (contador <= 15)):
+    if ((contador >= 6) and (contador <= 15)):
         cadenaFinal = mensajeFinal[1]
     else:
         if ((contador >= 16)):
@@ -101,14 +101,15 @@ def principal():
     contadorCuentas = 0
     while (bandera):
         opcion1 = int(input("Ingresar 1 para crear una cuenta en Facebook\n"\
-        f"Ingresar 2 para crear una cuenta de Twitter\n"\
-        f"Ingresar 3 para crear una cuenta en Whatsapp\n"\
-        f"Ingresar 4 para crear una cuenta en Telegram\n"\
-        f"Ingresar 5 para crear una cuenta en Signal\n"\
-        f"Ingresar 6 para crear una cuenta en Instagram\n"\
-        f"Ingresar 7 para crear una cuenta en Flickr: "))
+        f"Ingresar 2 para crear una cuenta de Twitter:\n"\
+        f"Ingresar 3 para crear una cuenta en Whatsapp:\n"\
+        f"Ingresar 4 para crear una cuenta en Telegram:\n"\
+        f"Ingresar 5 para crear una cuenta en Signal:\n"\
+        f"Ingresar 6 para crear una cuenta en Instagram:\n"\
+        f"Ingresar 7 para crear una cuenta en Flickr: \n "))
         if opcion1 == 1:
             cuenta_Facebook=crearFacebook()
+            print(cuenta_Facebook)
         else:
             if opcion1 == 2:
                 crearTwitter()
@@ -130,8 +131,11 @@ def principal():
                                 if opcion1 == 7:
                                     cuenta_Flickr = crearFlickr()
                                     print(cuenta_Flickr)
+        if ((opcion1 >= 1) & (opcion1 <= 7)):
+            contador = contador + 1
+        else:
+            print("Error, intente colocar los número presentados \n")
 
-        contadorCuentas = contadorCuentas + 1
 
         opcion2 = input("Escriba SI para crear mas cuentas\n Escribir no para dejar de crear cuentas ")
         opcion2 = opcion2.lower()
